@@ -1,0 +1,1 @@
+[27-Jun-2013 21:38:43 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/firozem/public_html/sms/forms/qrypersonalizesms.php:39) in /home/firozem/public_html/sms/forms/qrypersonalizesms.php on line 40

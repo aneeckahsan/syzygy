@@ -1,0 +1,15 @@
+<html>
+<body>
+<?php
+include $MENU;
+?>
+<table>
+<tr>
+<td><?php
+include $FORM;
+?>
+</td>
+</tr>
+</table>
+</body>
+</html>

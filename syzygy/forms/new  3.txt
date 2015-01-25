@@ -1,0 +1,40 @@
+<script src="js/jquery/jquery-1.7.1.min.js"></script>
+<script src="js/jquery/jquery.ui.core.min.js"></script>
+<script src="js/jquery/jquery.ui.widget.min.js"></script>
+<script src="js/jquery/jquery.ui.position.min.js"></script>
+<script src="js/jquery/jquery.ui.autocomplete.min.js"></script>
+
+<link rel="stylesheet" href="js/jquery/smoothness/jquery-ui-1.8.16.custom.css"/>
+var data = [
+		{"label":"Aragorn", "actor":"Viggo Mortensen"},
+		{"label":"Arwen", "actor":"Liv Tyler"},
+		{"label":"Bilbo Baggins", "actor":"Ian Holm"},
+		{"label":"Boromir", "actor":"Sean Bean"},
+		{"label":"Frodo Baggins", "actor":"Elijah Wood"},
+		{"label":"Gandalf", "actor":"Ian McKellen"},
+		{"label":"Gimli", "actor":"John Rhys-Davies"},
+		{"label":"Gollum", "actor":"Andy Serkis"},
+		{"label":"Legolas", "actor":"Orlando Bloom"},
+		{"label":"Meriadoc Merry Brandybuck", "actor":"Dominic Monaghan"},
+		{"label":"Peregrin Pippin Took", "actor":"Billy Boyd"},
+		{"label":"Samwise Gamgee", "actor":"Sean Astin"}
+		];
+$(function() {
+
+	$( "#search" ).autocomplete(
+	{
+		source:data,
+		select: function( event, ui ) {
+			$( "#search" ).val( ui.item.label + " / " + ui.item.actor );
+			return false;
+		}
+	}).data( "autocomplete" )._renderItem = function( ul, item ) {
+		return $( "<li></li>" )
+			.data( "item.autocomplete", item )
+			.append( "<a><strong>" + item.label + "</strong> / " + item.actor + "</a>" )
+			.appendTo( ul );
+		};		
+
+});
+
+<input type="text" id="search" />

@@ -1,0 +1,16 @@
+<html>
+<body>
+Hello.. This is a sample Template
+<?php
+include $MENU;
+?>
+<table>
+<tr>
+<td><?php
+include $FORM;
+?>
+</td>
+</tr>
+</table>
+</body>
+</html>

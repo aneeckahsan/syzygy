@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+.roundbox {
+	float: left;
+	height: 128px;
+	width: 128px;
+	background-image: url(images/icon-cir.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border:none !important;
+	
+}

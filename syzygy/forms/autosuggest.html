@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Autocomplete - Default functionality</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+	/*.ui-autocomplete {
+		max-height: 100px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+		visibility:hidden;
+
+	}*/
+</style>
+<script>
+
+$(function() {
+
+function log(message) {
+$("<div/>").text(message).prependTo("#log");
+$("#log").attr("scrollTop", 0);
+}
+var data = [
+		{"label":"Aragorn", "actor":"Viggo Mortensen"},
+		{"label":"Arwen", "actor":"Liv Tyler"},
+		{"label":"Bilbo Baggins", "actor":"Ian Holm"},
+		{"label":"Boromir", "actor":"Sean Bean"},
+		{"label":"Frodo Baggins", "actor":"Elijah Wood"},
+		{"label":"Gandalf", "actor":"Ian McKellen"},
+		{"label":"Gimli", "actor":"John Rhys-Davies"},
+		{"label":"Gollum", "actor":"Andy Serkis"},
+		{"label":"Legolas", "actor":"Orlando Bloom"},
+		{"label":"Meriadoc Merry Brandybuck", "actor":"Dominic Monaghan"},
+		{"label":"Peregrin Pippin Took", "actor":"Billy Boyd"},
+		{"label":"Samwise Gamgee", "actor":"Sean Astin"}
+		];
+$( "#search" ).autocomplete(
+	{
+		source:data,
+		select: function( event, ui ) {
+			$( "#search" ).val( ui.item.label + " / " + ui.item.actor );
+			return false;
+		}
+	}).data( "autocomplete" )._renderItem = function( ul, item ) {
+		return $( "<li></li>" )
+			.data( "item.autocomplete", item )
+			.append( "<a><strong>" + item.label + "</strong> / " + item.actor + "</a>" )
+			.appendTo( ul );
+		};		
+
+});
+</script>
+</head>
+<body>
+<!--<div class="ui-widget">-->
+<label for="search">search: </label>
+<input id="search">
+<!--</div>-->
+<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+Result:
+<div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>
+</body>
+</html>
